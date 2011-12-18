@@ -1,6 +1,6 @@
 
 class Admin::UsersController < ApplicationController
-    before_filter :authenticate_user!#, :except => [:show, :index]  
+    before_filter :authenticate_user!#, :except => [:show, :index]
   #before_filter :accessible_roles, :only => [:new, :edit, :show, :update, :create]
   load_and_authorize_resource #:only => [:show,:new,:destroy,:edit,:update]
   # GET /users
@@ -83,7 +83,7 @@ class Admin::UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-        
+
       respond_to do |format|
         format.json { render :json => @user.to_json, :status => 200 }
         format.xml  { head :ok }
@@ -125,6 +125,6 @@ class Admin::UsersController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     respond_to_not_found(:js, :xml, :html)
     end
-  
+
 end
 

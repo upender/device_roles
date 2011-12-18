@@ -1,6 +1,6 @@
 <% for user in @recent_users %>
 <li class="" id="recent_user_<%= user.id%>">
-    <dt>   
+    <dt>
 		<%=link_to truncate(user.name,:length=>27),admin_user_path(user)%>
     </dt>
     <tt>
